@@ -3,41 +3,83 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Lab11"
+        xmlns:local="clr-namespace:Lab11" xmlns:viewmodels="clr-namespace:Lab11.ViewModels"
         mc:Ignorable="d"
         Title="Main" 
         Height="450"
         Width="800"
         MinHeight="400"
         MinWidth="700"
-        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        SizeToContent="WidthAndHeight" 
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
     <Window.Resources>
+
+        <Storyboard x:Key="OnMouseOver">
+            <DoubleAnimation
+                Storyboard.TargetName="border"
+                Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.Opacity)"
+                From="0"
+                To="1"
+                Duration="0:0:0.5"
+                />
+
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeave">
+            <DoubleAnimation
+                Storyboard.TargetName="border"
+                Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.Opacity)"
+                From="1"
+                To="0"
+                Duration="0:0:0.3"
+                />
+
+        </Storyboard>
+
         <Style TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border
+                            x:Name="border"
                             Width="120"
                             Margin="15"
-                            Padding="10"
-                            CornerRadius="9"
+                            Padding="15"
+                            CornerRadius="7"
                             >
                             <Border.Background>
-                                <LinearGradientBrush x:Name="gradient" EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0">
-                                    <GradientStop Color="Black"/>
-                                    <GradientStop Color="White" Offset="1"/>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0" Opacity="0">
+                                    <GradientStop Color="#FF260810" Offset="0.003"/>
+                                    <GradientStop Color="#FF5C1327" Offset="0.88"/>
+                                    <GradientStop Color="#FF341222" Offset="0.625"/>
+                                    <GradientStop Color="#FF2E0D17" Offset="0.321"/>
                                 </LinearGradientBrush>
                             </Border.Background>
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="#FF291230" Direction="315" RenderingBias="Quality" ShadowDepth="5" Opacity="0.7"></DropShadowEffect>
+                            </Border.Effect>
                             <ContentPresenter Content="{TemplateBinding Content}"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
                                               TextBlock.Foreground="WhiteSmoke"
-                                              TextBlock.FontSize="18"
-                                              TextBlock.FontFamily="verdana">
+                                              TextBlock.FontSize="24"
+                                              TextBlock.FontFamily="a">
                             </ContentPresenter>
                         </Border>
 
                         <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnMouseOver}">
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnMouseLeave}">
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
                             
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
