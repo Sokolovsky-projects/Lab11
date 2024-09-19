@@ -43,6 +43,7 @@
                 Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.Opacity)"
                 From="0.9"
                 To="0.3"
+                AutoReverse="True"
                 Duration="0:0:0.2"
                 />
         </Storyboard>
@@ -88,9 +89,10 @@
                                 </Trigger.ExitActions>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard Storyboard="{StaticResource OnClick}" />
-                                </Trigger.EnterActions>
+                                <Setter 
+                                    Property="Opacity" 
+                                    Value="0.3"
+                                    />
                             </Trigger>
                             
                         </ControlTemplate.Triggers>
@@ -114,6 +116,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
 
+            <Button Content="Кнопка"/>
             <Button Content="Кнопка"/>
             <Button Content="Кнопка"/>
             <Button Content="Кнопка"/>
