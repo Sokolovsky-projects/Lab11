@@ -39,5 +39,31 @@ namespace Lab11.ViewModels
             RaisePropertyChanged(nameof(CurrentPage));
         }
 
+        private DelegateCommand registrationCommand;
+        public ICommand RegistrationCommand => registrationCommand ??= new DelegateCommand(Registration);
+
+        private void Registration()
+        {
+            _pageManager.SetCurrentPage(new RegistrationPage());
+            RaisePropertyChanged(nameof(CurrentPage));
+        }
+
+        private DelegateCommand shopCommand;
+        public ICommand ShopCommand => shopCommand ??= new DelegateCommand(Shop);
+
+        private void Shop()
+        {
+            _pageManager.SetCurrentPage(new ShopPage());
+            RaisePropertyChanged(nameof(CurrentPage));
+        }
+
+        private DelegateCommand basketCommand;
+        public ICommand BasketCommand => basketCommand ??= new DelegateCommand(Basket);
+
+        private void Basket()
+        {
+            _pageManager.SetCurrentPage(new BasketPage());
+            RaisePropertyChanged(nameof(CurrentPage));
+        }
     }
 }

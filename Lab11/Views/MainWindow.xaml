@@ -115,10 +115,14 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
 
-            <Button Content="Вход" Command="{Binding EnterCommand}"/>
-            <Button Content="Регистрация"/>
-            <Button Content="Магазин"/>
-            <Button Content="Корзина"/>
+            <Button Content="Вход" 
+                    Command="{Binding EnterCommand}"/>
+            <Button Content="Регистрация" 
+                    Command="{Binding RegistrationCommand}"/>
+            <Button Content="Магазин"
+                    Command="{Binding ShopCommand}"/>
+            <Button Content="Корзина"
+                    Command="{Binding BasketCommand}"/>
         </StackPanel>
 
         <Frame 
