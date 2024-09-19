@@ -54,7 +54,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border
                             x:Name="border"
-                            Width="120"
+                            Width="150"
                             Margin="15"
                             Padding="15"
                             CornerRadius="7"
@@ -74,7 +74,7 @@
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center"
                                               TextBlock.Foreground="WhiteSmoke"
-                                              TextBlock.FontSize="24"
+                                              TextBlock.FontSize="21"
                                               TextBlock.FontFamily="a">
                             </ContentPresenter>
                         </Border>
@@ -94,7 +94,6 @@
                                     Value="0.3"
                                     />
                             </Trigger>
-                            
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -104,8 +103,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="175"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
@@ -116,12 +115,18 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
 
-            <Button Content="Кнопка"/>
-            <Button Content="Кнопка"/>
-            <Button Content="Кнопка"/>
-            <Button Content="Кнопка"/>
+            <Button Content="Вход" Command="{Binding EnterCommand}"/>
+            <Button Content="Регистрация"/>
+            <Button Content="Магазин"/>
+            <Button Content="Корзина"/>
         </StackPanel>
 
-        <Frame Background="#FFFFE2F5" Grid.Column="1" Height="Auto" Width="Auto"/>
+        <Frame 
+            Background="#FFFFE2F5"
+            Grid.Column="1"
+            Height="Auto"
+            Width="Auto"
+            NavigationUIVisibility="Hidden"
+            Content="{Binding CurrentPage}"/>
     </Grid>
 </Window>
