@@ -22,8 +22,8 @@
                 Storyboard.TargetName="border"
                 Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.Opacity)"
                 From="0"
-                To="1"
-                Duration="0:0:0.5"
+                To="0.9"
+                Duration="0:0:0.4"
                 />
 
         </Storyboard>
@@ -31,11 +31,21 @@
             <DoubleAnimation
                 Storyboard.TargetName="border"
                 Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.Opacity)"
-                From="1"
+                From="0.9"
                 To="0"
                 Duration="0:0:0.3"
                 />
 
+        </Storyboard>
+        <Storyboard x:Key="OnClick">
+            <DoubleAnimation
+                Storyboard.TargetName="border"
+                Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.Opacity)"
+                From="0.9"
+                To="0.3"
+                AutoReverse="True"
+                Duration="0:0:0.2"
+                />
         </Storyboard>
 
         <Style TargetType="{x:Type Button}">
@@ -72,13 +82,17 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.EnterActions>
-                                    <BeginStoryboard Storyboard="{StaticResource OnMouseOver}">
-                                    </BeginStoryboard>
+                                    <BeginStoryboard Storyboard="{StaticResource OnMouseOver}"/>
                                 </Trigger.EnterActions>
                                 <Trigger.ExitActions>
-                                    <BeginStoryboard Storyboard="{StaticResource OnMouseLeave}">
-                                    </BeginStoryboard>
+                                    <BeginStoryboard Storyboard="{StaticResource OnMouseLeave}"/>
                                 </Trigger.ExitActions>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter 
+                                    Property="Opacity" 
+                                    Value="0.3"
+                                    />
                             </Trigger>
                             
                         </ControlTemplate.Triggers>
@@ -102,6 +116,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
 
+            <Button Content="Кнопка"/>
             <Button Content="Кнопка"/>
             <Button Content="Кнопка"/>
             <Button Content="Кнопка"/>
