@@ -3,20 +3,51 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Lab11.Views"
+      xmlns:local="clr-namespace:Lab11.Views" xmlns:viewmodels="clr-namespace:Lab11.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:EnterViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EnterPage">
-
+    <Page.DataContext>
+        <viewmodels:EnterViewModel/>
+    </Page.DataContext>
     <Grid Background="#FFFFE2F5">
-        <TextBlock 
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Margin="10"
-            Text="Вход"
-            FontSize="30"
-            >
-        </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="371,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Vertical">
+            <TextBlock 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="20"
+                Text="Вход"
+                FontSize="30"
+                />
+            <TextBlock 
+                Text="Логин"
+                HorizontalAlignment="Center"
+                Margin="10"
+                FontSize="25"
+                />
+            <TextBox
+                Width="200"
+                FontSize="17"
+                Text="{Binding Login}"
+                Margin="10"
+                />
+            <TextBlock
+                Text="Пароль"
+                HorizontalAlignment="Center"
+                Margin="10"
+                FontSize="25"
+                />
+            <TextBox
+                Width="200"
+                FontSize="17"
+                Text="{Binding Password}"
+                Margin="10"
+                />
+            <Button
+                Width="150"
+                Content="Войти"
+                
+                />
+        </StackPanel>
     </Grid>
 </Page>
