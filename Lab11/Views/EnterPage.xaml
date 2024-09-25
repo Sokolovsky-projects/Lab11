@@ -10,6 +10,13 @@
     <Page.DataContext>
         <viewmodels:EnterViewModel/>
     </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ButtonResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid Background="#FFFFE2F5">
         <StackPanel Orientation="Vertical">
             <TextBlock 
@@ -44,9 +51,9 @@
                 Margin="10"
                 />
             <Button
-                Width="150"
+                Width="200"
                 Content="Войти"
-                
+                Style="{StaticResource Btn_Style}"
                 />
         </StackPanel>
     </Grid>

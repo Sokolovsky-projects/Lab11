@@ -3,18 +3,72 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Lab11.Views"
+      xmlns:local="clr-namespace:Lab11.Views" xmlns:viewmodels="clr-namespace:Lab11.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegistrationPage">
-
+    <Page.DataContext>
+        <viewmodels:RegistrationViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/ButtonResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid Background="#FFFFE2F5">
-        <TextBlock 
-    HorizontalAlignment="Center"
-    VerticalAlignment="Top"
-    Margin="10"
-    Text="Регистрация"
-    FontSize="30"
-    />
+        <StackPanel Orientation="Vertical">
+            <TextBlock 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="10"
+                Text="Регистрация"
+                FontSize="30"
+                />
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="10"
+                Text="Логин"
+                FontSize="25"
+                />
+            <TextBox
+                Text="{Binding Login}"
+                Width="200"
+                FontSize="17"
+                />
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="10"
+                Text="Пароль"
+                FontSize="25"
+                />
+            <TextBox
+                Text="{Binding Password}"
+                Width="200"
+                FontSize="17"
+                />
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="10"
+                Text="Подтвердите пароль"
+                FontSize="25"
+                />
+            <TextBox
+                Text="{Binding SecondPassword}"
+                Width="200"
+                FontSize="17"
+                />
+            <Button 
+                Width="200"
+                Margin="15"
+                Content="Регистрация"
+                Command="{Binding RegistrateCommand}"
+                Style="{StaticResource Btn_Style}"
+                />
+        </StackPanel>
     </Grid>
 </Page>

@@ -54,7 +54,7 @@
                                 </LinearGradientBrush>
                             </Border.Background>
                             <Border.Effect>
-                                <DropShadowEffect BlurRadius="10" Color="#FF291230" Direction="315" RenderingBias="Quality" ShadowDepth="5" Opacity="0.7"></DropShadowEffect>
+                                <DropShadowEffect BlurRadius="1" Color="#FF291230" Direction="315" RenderingBias="Quality" ShadowDepth="2" Opacity="1"></DropShadowEffect>
                             </Border.Effect>
                             <ContentPresenter Content="{TemplateBinding Content}"
                                           HorizontalAlignment="Center"

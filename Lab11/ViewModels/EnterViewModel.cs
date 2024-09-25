@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Lab11.Models;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,10 @@ namespace Lab11.ViewModels
 
         private void Authorize()
         {
+            //todo авторизация
+            UserAuthorizationManager manager = new UserAuthorizationManager();
+
+            manager.Authorize(Login, Password);
         }
 
     }
